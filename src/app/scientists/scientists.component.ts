@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Scientist } from '../scientist';
 
 @Component({
   selector: 'app-scientists',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./scientists.component.css']
 })
 export class ScientistsComponent {
-
+  scientist: Scientist = {
+    id: 1,
+    name: 'Klaudios Ptolemaios',
+    birth: 100,
+    death: 175,
+    nationality: 'Alexandrian'
+  };
 }
