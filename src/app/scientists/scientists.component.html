@@ -3,3 +3,7 @@
 <div><span>birth: </span>{{scientist.birth}}</div>
 <div><span>death: </span>{{scientist.death}}</div>
 <div><span>nationality: </span>{{scientist.nationality}}</div>
+<div>
+    <label for="name">Change scientist's name:</label>
+    <input id="name" placeholder="name" [(ngModel)]="scientist.name">
+</div>
