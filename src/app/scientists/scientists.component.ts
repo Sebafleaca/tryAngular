@@ -19,8 +19,10 @@ export class ScientistsComponent {
   };
   */
   scientists = SCIENTISTS;
+
   selectedScientist?: Scientist;
   onSelect(scientist: Scientist): void {
     this.selectedScientist = scientist;
   };
+  
 }

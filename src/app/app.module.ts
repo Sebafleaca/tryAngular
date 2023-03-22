@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScientistsComponent } from './scientists/scientists.component';
+import { ScientistDetailComponent } from './scientist-detail/scientist-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ScientistsComponent
+    ScientistsComponent,
+    ScientistDetailComponent
   ],
   imports: [
     FormsModule,

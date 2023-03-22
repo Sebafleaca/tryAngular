@@ -8,10 +8,4 @@
     </li>
 </ul>
 
-<div *ngIf="selectedScientist">
-    <h3>{{selectedScientist.name}}'s details:</h3>
-    <div><span>ID: </span>{{selectedScientist.id}}</div>
-    <div><span>Birth: </span>{{selectedScientist.birth}}</div>
-    <div><span>Death: </span>{{selectedScientist.death}}</div>
-    <div><span>Nationality: </span>{{selectedScientist.nationality}}</div>
-</div>
+<app-scientist-detail [scientist]="selectedScientist"></app-scientist-detail>
