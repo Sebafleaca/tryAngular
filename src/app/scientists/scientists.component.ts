@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-// import { Scientist } from '../scientist';
-import { SCIENTISTS } from '../mock-scientists'; 
+import { Scientist } from '../scientist';
+import { SCIENTISTS } from '../mock-scientists';
 
 @Component({
   selector: 'app-scientists',
@@ -19,4 +19,8 @@ export class ScientistsComponent {
   };
   */
   scientists = SCIENTISTS;
+  selectedScientist?: Scientist;
+  onSelect(scientist: Scientist): void {
+    this.selectedScientist = scientist;
+  };
 }
