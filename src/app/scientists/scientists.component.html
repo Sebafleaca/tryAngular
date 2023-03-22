@@ -1,9 +1,9 @@
-<h2>{{scientist.name}}</h2>
-<div><span>id: </span>{{scientist.id}}</div>
-<div><span>birth: </span>{{scientist.birth}}</div>
-<div><span>death: </span>{{scientist.death}}</div>
-<div><span>nationality: </span>{{scientist.nationality}}</div>
-<div>
-    <label for="name">Change scientist's name:</label>
-    <input id="name" placeholder="name" [(ngModel)]="scientist.name">
-</div>
+<h2>List of scientists</h2>
+<ul class="scientists">
+    <li *ngFor="let scientist of scientists">
+        <button type="button">
+            <span class="id">{{scientist.id}}</span>
+            <span class="name">{{scientist.name}}</span>
+        </button>
+    </li>
+</ul>
