@@ -24,19 +24,20 @@ export class ScientistsComponent {
   scientists = SCIENTISTS;
   */
 
+  scientists: Scientist[] = [];
+  selectedScientist?: Scientist;
+
   constructor(private scientistService: ScientistService) {}
 
-  scientists: Scientist[] = [];
-
-  getScientists(): void {
-    this.scientists = this.scientistService.getScientists();
-  }
-  
   ngOnInit(): void {
     this.getScientists();
   }
 
-  selectedScientist?: Scientist;
+  getScientists(): void {
+    this.scientistService.getScientists()
+      .subscribe(scientists => this.scientists = scientists);
+  }
+
   onSelect(scientist: Scientist): void {
     this.selectedScientist = scientist;
   }
