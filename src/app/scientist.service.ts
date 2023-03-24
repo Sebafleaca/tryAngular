@@ -16,5 +16,11 @@ export class ScientistService {
     return scientists;
   }
 
+  getScientist(id: number): Observable<Scientist> {
+    const scientist = SCIENTISTS.find(h => h.id === id)!;
+    this.messageService.add(`ScientistService: fetched scientist id=${id}`);
+    return of(scientist);
+  }
+
   constructor(private messageService: MessageService) { }
 }

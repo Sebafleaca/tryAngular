@@ -3,13 +3,12 @@ import { Scientist } from '../scientist';
 import { ScientistService } from '../scientist.service';
 
 @Component({
-  selector: 'app-scientists',
-  templateUrl: './scientists.component.html',
-  styleUrls: ['./scientists.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class ScientistsComponent implements OnInit {
-
-  scientists: Scientist[] = [];
+export class DashboardComponent implements OnInit {
+  scientists: Scientist[] = []
 
   constructor(private scientistService: ScientistService) { }
 
@@ -19,7 +18,6 @@ export class ScientistsComponent implements OnInit {
 
   getScientists(): void {
     this.scientistService.getScientists()
-      .subscribe(scientists => this.scientists = scientists);
+      .subscribe(scientists => this.scientists = scientists.slice(0, 4));
   }
-
 }

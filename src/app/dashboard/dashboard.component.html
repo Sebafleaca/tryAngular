@@ -1,0 +1,7 @@
+<h3>Top scientists</h3>
+<div class="scientist-menu">
+    <a *ngFor="let scientist of scientists"
+        routerLink="/detail/{{scientist.id}}">
+        {{ scientist.name }}
+    </a>
+</div>

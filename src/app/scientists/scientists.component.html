@@ -1,11 +1,11 @@
 <h2>List of scientists</h2>
+
 <ul class="scientists">
     <li *ngFor="let scientist of scientists">
-        <button type="button" [class.selected]="scientist === selectedScientist" (click)="onSelect(scientist)">
-            <span class="id">{{scientist.id}}</span>
-            <span class="name">{{scientist.name}}</span>
-        </button>
+        
+        <a routerLink="/detail/{{scientist.id}}">
+            <span class="badge">{{scientist.id}}</span>{{scientist.name}}
+        </a>
+
     </li>
 </ul>
-
-<app-scientist-detail [scientist]="selectedScientist"></app-scientist-detail>
