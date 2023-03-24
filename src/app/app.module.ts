@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScientistsComponent } from './scientists/scientists.component';
 import { ScientistDetailComponent } from './scientist-detail/scientist-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScientistsComponent,
-    ScientistDetailComponent
+    ScientistDetailComponent,
+    MessagesComponent
   ],
   imports: [
     FormsModule,
