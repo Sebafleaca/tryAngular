@@ -1,33 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Scientist } from '../scientist';
 import { ScientistService } from '../scientist.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-scientists',
   templateUrl: './scientists.component.html',
   styleUrls: ['./scientists.component.css']
 })
-export class ScientistsComponent {
-  /* First tutorial:
-
-  scientist: Scientist = {
-    id: 0,
-    name: 'Klaudios Ptolemaios',
-    birth: 100,
-    death: 175,
-    nationality: 'Alexandrian'
-  };
-  */
-  
-  /* Second tutorial
-  
-  scientists = SCIENTISTS;
-  */
+export class ScientistsComponent implements OnInit {
 
   scientists: Scientist[] = [];
   selectedScientist?: Scientist;
 
-  constructor(private scientistService: ScientistService) {}
+  constructor(private scientistService: ScientistService,
+    private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.getScientists();
@@ -40,6 +27,7 @@ export class ScientistsComponent {
 
   onSelect(scientist: Scientist): void {
     this.selectedScientist = scientist;
+    this.messageService.add(`ScientistComponent: Selected scientist id=${scientist.id}`);
   }
   
 }
