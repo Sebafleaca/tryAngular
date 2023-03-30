@@ -32,4 +32,12 @@ export class ScientistDetailComponent {
   goBack(): void {
     this.location.back();
   }
+
+  save(): void{
+    if (this.scientist) {
+      this.scientistService.updateScientist(this.scientist)
+        .subscribe(() => this.goBack());
+    }
+
+  }
 }

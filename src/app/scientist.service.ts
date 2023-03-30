@@ -50,6 +50,18 @@ export class ScientistService {
       );
   }
 
+  updateScientist(scientist: Scientist): Observable<any> {
+    return this.http.put(this.scientistsUrl, scientist, this.httpOptions)
+      .pipe(
+        tap(_ => `updated scientist id=${scientist.id}`),
+        catchError(this.handleError<any>('updateScientist'))
+      )
+  }
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
