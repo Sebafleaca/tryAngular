@@ -30,4 +30,9 @@ export class ScientistsComponent implements OnInit {
         this.scientists.push(scientist);
       });
   }
+
+  delete(scientist: Scientist): void {
+    this.scientists = this.scientists.filter( k => k !== scientist);
+    this.scientistService.deleteScientist(scientist.id).subscribe();
+  }
 }

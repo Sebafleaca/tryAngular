@@ -67,7 +67,17 @@ export class ScientistService {
       .pipe(
         tap((newScientist: Scientist) => this.log(`added scientist w/ id=${newScientist.id}`)),
         catchError(this.handleError<Scientist>('addScientist'))
-      )
+      );
+  }
+
+  deleteScientist(id: number): Observable<Scientist> {
+    const url = `${this.scientistsUrl}/${id}`
+
+    return this.http.delete<Scientist>(url, this.httpOptions)
+      .pipe(
+        tap(_ => this.log(`deleted scientist id=${id}`)),
+        catchError(this.handleError<Scientist>('deleteScientist'))
+      );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
