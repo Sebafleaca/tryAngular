@@ -21,6 +21,11 @@ export class ScientistService {
     this.messageService.add('ScientistService: fetched scientists');
     return scientists;
   }
+
+  getScientist(id: number): Observable<Scientist> {
+    const scientist = SCIENTISTS.find(h => h.id === id)!;
+    this.messageService.add(`ScientistService: fetched scientist id=${id}`);
+    return of(scientist);
   */
 
   constructor(
@@ -31,14 +36,18 @@ export class ScientistService {
   getScientists(): Observable<Scientist[]> {
     return this.http.get<Scientist[]>(this.scientistsUrl)
       .pipe(
+        tap(_ => this.log('fetched heroes')),
         catchError(this.handleError<Scientist[]>('getScientists', []))
     );
   }
 
   getScientist(id: number): Observable<Scientist> {
-    const scientist = SCIENTISTS.find(h => h.id === id)!;
-    this.messageService.add(`ScientistService: fetched scientist id=${id}`);
-    return of(scientist);
+    const url = `${this.scientistsUrl}/${id}`;
+    return this.http.get<Scientist>(url)
+      .pipe(
+        tap(_ => this.log(`fetched hero id=${id}`)),
+        catchError(this.handleError<Scientist>(`getHero id=${id}`))
+      );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
