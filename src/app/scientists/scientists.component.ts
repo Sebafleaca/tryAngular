@@ -22,4 +22,12 @@ export class ScientistsComponent implements OnInit {
       .subscribe(scientists => this.scientists = scientists);
   }
 
+  add(name: string): void{
+    name = name.trim();
+    if (!name) {return;}
+    this.scientistService.addScientist({name} as Scientist)
+      .subscribe(scientist => {
+        this.scientists.push(scientist);
+      });
+  }
 }

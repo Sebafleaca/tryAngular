@@ -62,6 +62,14 @@ export class ScientistService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
+  addScientist(scientist: Scientist): Observable<Scientist> {
+    return this.http.post<Scientist>(this.scientistsUrl, scientist, this.httpOptions)
+      .pipe(
+        tap((newScientist: Scientist) => this.log(`added scientist w/ id=${newScientist.id}`)),
+        catchError(this.handleError<Scientist>('addScientist'))
+      )
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

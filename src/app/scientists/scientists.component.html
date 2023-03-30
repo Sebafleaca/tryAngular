@@ -9,3 +9,9 @@
 
     </li>
 </ul>
+
+<div>
+    <label for="new-scientist">Scientist's name: </label>
+    <input id="new-scientist" #scientistName />
+    <button type="button" class="add-button" (click)="add(scientistName.value)">Add scientist</button>
+</div>
