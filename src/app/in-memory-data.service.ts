@@ -18,12 +18,12 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 8, name: 'Gottfried Wilhelm Leibnitz', birth: 1646, death: 1716, nationality: 'German'},
       { id: 9, name: 'Edmond Halley', birth: 1656, death: 1742, nationality: 'English'}
     ]
-    return(scientists);    
+    return {scientists};    
   };
 
   constructor() { }
 
   genId(scientists: Scientist[]): number {
-    return scientists.length > 0 ? Math.max(...scientists.map(scientist => scientist.id)) + 1 : 1;
+    return scientists.length > 0 ? Math.max(...scientists.map(scientist => scientist.id)) + 1 : 0;
   }
 }
