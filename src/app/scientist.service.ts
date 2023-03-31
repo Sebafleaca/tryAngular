@@ -14,20 +14,6 @@ export class ScientistService {
 
   private scientistsUrl = 'api/scientists';
 
-  /* Old tutorial.
-
-  getScientists(): Observable<Scientist[]> {
-    const scientists = of(SCIENTISTS);
-    this.messageService.add('ScientistService: fetched scientists');
-    return scientists;
-  }
-
-  getScientist(id: number): Observable<Scientist> {
-    const scientist = SCIENTISTS.find(h => h.id === id)!;
-    this.messageService.add(`ScientistService: fetched scientist id=${id}`);
-    return of(scientist);
-  */
-
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
@@ -78,6 +64,19 @@ export class ScientistService {
         tap(_ => this.log(`deleted scientist id=${id}`)),
         catchError(this.handleError<Scientist>('deleteScientist'))
       );
+  }
+
+  searchScientists(term: string): Observable<Scientist[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
+    return this.http.get<Scientist[]>(`${this.scientistsUrl}/?name=${term}`)
+      .pipe(
+        tap(x => x.length ?
+          this.log(`found scientist matching "${term}"`) : 
+          this.log(`no scientists matching "${term}"`)),
+        catchError(this.handleError<Scientist[]>('searchScientists', []))
+      )
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

@@ -1,7 +1,9 @@
-<h3>Top scientists</h3>
+<h2>Top scientists</h2>
 <div class="scientist-menu">
     <a *ngFor="let scientist of scientists"
         routerLink="/detail/{{scientist.id}}">
         {{ scientist.name }}
     </a>
 </div>
+
+<app-scientist-search></app-scientist-search>
