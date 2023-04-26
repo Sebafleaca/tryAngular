@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { ScientistDetailComponent } from './scientist-detail.component';
 
@@ -8,6 +10,10 @@ describe('ScientistDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        HttpClientModule, 
+        RouterModule.forRoot([])
+      ],
       declarations: [ ScientistDetailComponent ]
     })
     .compileComponents();

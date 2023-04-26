@@ -22,7 +22,7 @@ export class ScientistService {
   getScientists(): Observable<Scientist[]> {
     return this.http.get<Scientist[]>(this.scientistsUrl)
       .pipe(
-        tap(_ => this.log('fetched heroes')),
+        tap(_ => this.log('fetched scientists')),
         catchError(this.handleError<Scientist[]>('getScientists', []))
     );
   }
@@ -31,8 +31,8 @@ export class ScientistService {
     const url = `${this.scientistsUrl}/${id}`;
     return this.http.get<Scientist>(url)
       .pipe(
-        tap(_ => this.log(`fetched hero id=${id}`)),
-        catchError(this.handleError<Scientist>(`getHero id=${id}`))
+        tap(_ => this.log(`fetched scientist id=${id}`)),
+        catchError(this.handleError<Scientist>(`getScientist id=${id}`))
       );
   }
 

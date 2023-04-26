@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ScientistsComponent } from './scientists.component';
 
@@ -8,6 +9,7 @@ describe('ScientistsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientModule],
       declarations: [ ScientistsComponent ]
     })
     .compileComponents();
