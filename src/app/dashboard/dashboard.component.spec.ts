@@ -2,8 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 
 import { DashboardComponent } from './dashboard.component';
+import { ScientistSearchComponent } from '../scientist-search/scientist-search.component';
 
-xdescribe('DashboardComponent', () => {
+describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
 
@@ -12,7 +13,7 @@ xdescribe('DashboardComponent', () => {
       imports: [
         HttpClientModule
       ],
-      declarations: [ DashboardComponent ]
+      declarations: [ DashboardComponent, ScientistSearchComponent ]
     })
     .compileComponents();
 
